@@ -1,12 +1,16 @@
 # MLB Batting Stats (2015–2024)
 
-# 📝Description 
+## 📂Data source
+  
+  -- [View dataset Cafe_sales.csv](data/Cafe_sales.csv) 
+  
+## 📝Description 
   
   This dataset contains scraped Major League Baseball (MLB) batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
   The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average (BA), On-Base Percentage (OBP), Slugging (SLG), OPS, RBI, and Games Played (G). This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
 
-# ⚙️Data Collection (Python)
+## ⚙️Data Collection (Python)
   
   Data was scraped directly from Baseball Reference using a Python script that:
 - Sent HTTP requests with browser-like headers to avoid request blocking.
@@ -17,7 +21,7 @@
 - Converted numeric fields and filled missing values with zeros.
 - Exported both raw and cleaned CSVs for each year.
 
-# 🧹Data Cleaning (SQL)
+## 🧹Data Cleaning (SQL)
 After scraping, the raw batting tables were uploaded into BigQuery and further cleaned:
   
   - Null values removed – Rows missing key fields (Player, BA, OBP, SLG, OPS, Pos) were excluded.
@@ -29,7 +33,7 @@ After scraping, the raw batting tables were uploaded into BigQuery and further c
   - The final cleaned table (cleaned_batting_stats) provides consistent, duplicate-free player summaries suitable for analytics.
 
 
-# 📊Dataset Structure
+## 📊Dataset Structure
   
 | Column | Description                                                       |
 |--------|-------------------------------------------------------------------|
@@ -44,7 +48,7 @@ After scraping, the raw batting tables were uploaded into BigQuery and further c
 | Pos | Primary fielding position |
 
 
-# 🚀Potential Uses
+## 🚀Potential Uses
   
   - League Trends: Compare batting averages and OPS across seasons.
   
@@ -57,7 +61,7 @@ After scraping, the raw batting tables were uploaded into BigQuery and further c
   - Sports Dashboards: Build interactive Tableau/Plotly dashboards for fans and analysts.
 
 
-📌Acknowledgments
+## 📌Acknowledgments
   
   - Raw data sourced from Baseball Reference .
 
