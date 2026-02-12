@@ -2,7 +2,7 @@
 
 ## 📂Data source
   
-  -- [View dataset Cafe_sales.csv](data/Cafe_sales.csv) 
+  -- [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
   
 ## 📝Description 
   
