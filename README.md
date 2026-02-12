@@ -2,7 +2,7 @@
 
 ## 📂Data source
   
-  -- [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
+  - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
   
 ## 📝Description 
   
