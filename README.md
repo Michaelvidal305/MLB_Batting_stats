@@ -6,9 +6,9 @@
   
 ## 📝Description 
   
-  This dataset contains scraped Major League Baseball (MLB) batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
+  This dataset contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
-  The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average (BA), On-Base Percentage (OBP), Slugging (SLG), OPS, RBI, and Games Played (G). This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
+  The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average *(BA)*, On-Base Percentage *(OBP)*, Slugging *(SLG)*, OPS, RBI, and Games Played *(G)*. This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
 
 ## ⚙️Data Collection (Python)
   
