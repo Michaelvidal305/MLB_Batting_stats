@@ -22,7 +22,8 @@
 - Exported both raw and cleaned CSVs for each year.
 
 ## 🧹Data Cleaning (SQL)
-After scraping, the raw batting tables were uploaded into BigQuery and further cleaned:
+  
+  After scraping, the raw batting tables were uploaded into BigQuery and further cleaned:
   
   - Null values removed – Rows missing key fields (Player, BA, OBP, SLG, OPS, Pos) were excluded.
   
