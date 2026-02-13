@@ -1,0 +1,109 @@
+🧹 SQLite Cleaning Script
+
+=============================
+1. Create a raw import table
+=============================
+
+CREATE TABLE raw_batting_stats (
+    Player TEXT,
+    Year   INTEGER,
+    Age    INTEGER,
+    Team   TEXT,
+    Lg     TEXT,
+    WAR    REAL,
+    G      INTEGER,
+    PA     INTEGER,
+    AB     INTEGER,
+    R      INTEGER,
+    H      INTEGER,
+    [2B]   INTEGER,
+    [3B]   INTEGER,
+    HR     INTEGER,
+    RBI    INTEGER,
+    BA     REAL,
+    OBP    REAL,
+    SLG    REAL,
+    OPS    REAL,
+    Pos    TEXT
+);
+
+=============================
+2. Create a cleaned working table
+=============================
+
+CREATE TABLE batting_clean AS 
+SELECT 
+  TRIM(REPLACE(REPLACE(Player, '#', ''), '*', '') ) AS Player,
+  Year,
+  Age,
+  Team,
+  Lg,
+  WAR,
+  G,
+  PA,
+  AB,
+  R,
+  H,
+  "2B",
+  "3B",
+  HR,
+  RBI,
+  BA,
+  OBP,
+  SLG,
+  OPS,
+  Pos
+FROM raw_batting_stats;
+
+=============================
+3. Remove rows missing essential fields
+=============================
+
+DELETE FROM batting_clean
+      WHERE Player IS NULL OR
+            BA IS NULL OR
+            OBP IS NULL OR
+            SLG IS NULL OR
+            OPS IS NULL OR
+            Pos IS NULL;
+
+=============================
+4. Convert empty strings to NULL, then
+fill numeric NULLs with 0
+=============================
+
+UPDATE batting_clean
+   SET WAR = COALESCE(NULLIF(WAR, ''), 0),
+       G = COALESCE(NULLIF(G, ''), 0),
+       PA = COALESCE(NULLIF(PA, ''), 0),
+       AB = COALESCE(NULLIF(AB, ''), 0),
+       R = COALESCE(NULLIF(R, ''), 0),
+       H = COALESCE(NULLIF(H, ''), 0),
+       [2B] = COALESCE(NULLIF("2B", ''), 0),
+       [3B] = COALESCE(NULLIF("3B", ''), 0),
+       HR = COALESCE(NULLIF(HR, ''), 0),
+       RBI = COALESCE(NULLIF(RBI, ''), 0);
+
+=============================
+5. Remove players with fewer than 100 at-dats
+=============================
+
+DELETE FROM batting_clean
+      WHERE AB < 100;
+
+=============================
+6. Remove players with fewer than 100 at-dats
+=============================
+
+DELETE FROM batting_clean
+      WHERE rowid NOT IN (
+    SELECT rowid
+      FROM (
+               SELECT rowid,
+                      ROW_NUMBER() OVER (PARTITION BY Player,
+                      Year,
+                      Lg ORDER BY PA DESC) AS rn
+                 FROM batting_clean
+           )
+     WHERE rn = 1
+);
