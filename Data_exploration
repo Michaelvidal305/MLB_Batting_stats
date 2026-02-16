@@ -1,0 +1,68 @@
+🔍 Data exploration
+
+=============================
+1. Basic structure & row counts
+=============================
+
+- Count total rows
+SELECT COUNT( * ) AS total_rows
+  FROM batting_clean;
+
+- Count distinct players
+SELECT COUNT(DISTINCT Player) AS unique_players
+  FROM batting_clean;
+
+=============================
+2. Summary Statistics
+=============================
+
+- League-wide averages
+SELECT ROUND(AVG(BA), 3) AS avg_ba,
+       ROUND(AVG(OBP), 3) AS avg_obp,
+       ROUND(AVG(SLG), 3) AS avg_slg,
+       ROUND(AVG(OPS), 3) AS avg_ops,
+       ROUND(AVG(HR), 1) AS avg_hr,
+       ROUND(AVG(RBI), 1) AS avg_rbi
+  FROM batting_clean;
+
+- Min/Max values
+SELECT
+    MIN(BA) AS min_ba,
+    MAX(BA) AS max_ba,
+    MIN(OPS) AS min_ops,
+    MAX(OPS) AS max_ops
+FROM batting_clean;
+
+=============================
+3. Top Performers
+=============================
+- Top 20 players by WAR
+SELECT Player,
+       Year,
+       Team,
+       WAR
+  FROM batting_clean
+ ORDER BY WAR DESC
+ LIMIT 20;
+
+- Top 20 Home Run leaders
+SELECT Player,
+       Year,
+       Team,
+       WAR
+  FROM batting_clean
+ ORDER BY HR DESC
+ LIMIT 20;
+
+- Top 20 OPS leaders
+SELECT Player,
+       Year,
+       Team,
+       WAR
+  FROM batting_clean
+ ORDER BY OPS DESC
+ LIMIT 20;
+
+=============================
+4. Year-Over-Year trends
+=============================
