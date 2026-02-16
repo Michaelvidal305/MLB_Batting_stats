@@ -34,8 +34,9 @@ SELECT
 FROM batting_clean;
 
 =============================
-3. Top Performers
+3. Player Leaderboards
 =============================
+
 - Top 20 players by WAR
 SELECT Player,
        Year,
@@ -66,3 +67,46 @@ SELECT Player,
 =============================
 4. Year-Over-Year trends
 =============================
+
+- League avrage OPS by year(age)
+SELECT DISTINCT Year,
+       Lg,
+       ROUND(AVG(OPS), 3) AS avg_ops
+  FROM batting_clean
+ GROUP BY Year,
+          Lg
+ ORDER BY Year,
+          Lg;
+
+- Total home runs per year(age)
+SELECT Year,
+       SUM(HR) AS total_hr
+  FROM batting_clean
+ GROUP BY Year
+ ORDER BY Year;
+
+=============================
+5. Distributions & quartiles
+=============================
+
+- OPS quartiles
+WITH ordered AS (
+    SELECT OPS,
+           NTILE(4) OVER (ORDER BY OPS) AS quartile
+      FROM batting_clean
+)
+SELECT quartile,
+       ROUND(AVG(OPS), 3) AS avg_ops
+  FROM ordered
+ GROUP BY quartile
+ ORDER BY quartile;
+
+=============================
+6. Positional Analysis
+=============================
+
+SELECT Pos,
+       ROUND(AVG(OPS), 3) AS avg_ops
+  FROM batting_clean
+ GROUP BY Pos
+ ORDER BY avg_ops DESC;
