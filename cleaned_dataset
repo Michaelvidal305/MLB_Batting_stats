@@ -5,6 +5,7 @@
 =============================
 
 CREATE TABLE raw_batting_stats (
+    RK     INTEGER,
     Player TEXT,
     Year   INTEGER,
     Age    INTEGER,
@@ -34,6 +35,7 @@ CREATE TABLE raw_batting_stats (
 CREATE TABLE batting_clean AS 
 SELECT 
   TRIM(REPLACE(REPLACE(Player, '#', ''), '*', '') ) AS Player,
+  RK,
   Year,
   Age,
   Team,
@@ -60,7 +62,8 @@ FROM raw_batting_stats;
 =============================
 
 DELETE FROM batting_clean
-      WHERE Player IS NULL OR
+      WHERE RK IS NULL OR
+            Player IS NULL OR
             BA IS NULL OR
             OBP IS NULL OR
             SLG IS NULL OR
@@ -73,7 +76,8 @@ fill numeric NULLs with 0
 =============================
 
 UPDATE batting_clean
-   SET WAR = COALESCE(NULLIF(WAR, ''), 0),
+   SET RK = COALESCE(NULLIF(RK, ''), 0),
+       WAR = COALESCE(NULLIF(WAR, ''), 0),
        G = COALESCE(NULLIF(G, ''), 0),
        PA = COALESCE(NULLIF(PA, ''), 0),
        AB = COALESCE(NULLIF(AB, ''), 0),
@@ -92,7 +96,7 @@ DELETE FROM batting_clean
       WHERE AB < 100;
 
 =============================
-6. Remove players with fewer than 100 at-dats
+6. Deduplicate player–year–league rows
 =============================
 
 DELETE FROM batting_clean
