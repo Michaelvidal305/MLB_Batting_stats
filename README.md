@@ -48,6 +48,22 @@
 | BA, OBP, SLG, OPS | Rate statistics |
 | Pos | Primary fielding position |
 
+## ⚾ Baseball Position Numbers (1–9)
+
+| NUmber | Position | Name |
+|--------|----------|------|
+| 1 | Pitcher | P |
+| 2 | Catcher | C |
+| 3 | First Baseman | 1B |
+| 4 | Second Baseman | 2B |
+| 5 | Third Baseman | 3B |
+| 6 | Shortstop | SS |
+| 7 | Left Fielder | LF |
+| 8 | Center Fielder | CF |
+| 9 | Right Fielder | RF |
+| H | Hitter (no defensive position) | H |
+| P | Pinch-Hitter | PH |
+| D | Designated Hitter | DH |
 
 ## 🚀Potential Uses
   
