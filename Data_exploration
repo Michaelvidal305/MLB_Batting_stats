@@ -4,11 +4,11 @@
 1. Basic structure & row counts
 =============================
 
-- Count total rows
+-- Count total rows
 SELECT COUNT( * ) AS total_rows
   FROM batting_clean;
 
-- Count distinct players
+-- Count distinct players
 SELECT COUNT(DISTINCT Player) AS unique_players
   FROM batting_clean;
 
@@ -16,7 +16,7 @@ SELECT COUNT(DISTINCT Player) AS unique_players
 2. Summary Statistics
 =============================
 
-- League-wide averages
+-- League-wide averages
 SELECT ROUND(AVG(BA), 3) AS avg_ba,
        ROUND(AVG(OBP), 3) AS avg_obp,
        ROUND(AVG(SLG), 3) AS avg_slg,
@@ -25,7 +25,7 @@ SELECT ROUND(AVG(BA), 3) AS avg_ba,
        ROUND(AVG(RBI), 1) AS avg_rbi
   FROM batting_clean;
 
-- Min/Max values
+-- Min/Max values
 SELECT
     MIN(BA) AS min_ba,
     MAX(BA) AS max_ba,
@@ -37,7 +37,7 @@ FROM batting_clean;
 3. Player Leaderboards
 =============================
 
-- Top 20 players by WAR
+-- Top 20 players by WAR
 SELECT Player,
        Year,
        Team,
@@ -46,20 +46,20 @@ SELECT Player,
  ORDER BY WAR DESC
  LIMIT 20;
 
-- Top 20 Home Run leaders
+-- Top 20 Home Run leaders
 SELECT Player,
        Year,
        Team,
-       WAR
+       HR
   FROM batting_clean
  ORDER BY HR DESC
  LIMIT 20;
 
-- Top 20 OPS leaders
+-- Top 20 OPS leaders
 SELECT Player,
        Year,
        Team,
-       WAR
+       OPS
   FROM batting_clean
  ORDER BY OPS DESC
  LIMIT 20;
@@ -68,8 +68,8 @@ SELECT Player,
 4. Year-Over-Year trends
 =============================
 
-- League avrage OPS by year(age)
-SELECT DISTINCT Year,
+-- League avrage OPS by year
+SELECT Year,
        Lg,
        ROUND(AVG(OPS), 3) AS avg_ops
   FROM batting_clean
@@ -78,7 +78,7 @@ SELECT DISTINCT Year,
  ORDER BY Year,
           Lg;
 
-- Total home runs per year(age)
+-- Total home runs per year(age)
 SELECT Year,
        SUM(HR) AS total_hr
   FROM batting_clean
@@ -89,7 +89,7 @@ SELECT Year,
 5. Distributions & quartiles
 =============================
 
-- OPS quartiles
+-- OPS quartiles
 WITH ordered AS (
     SELECT OPS,
            NTILE(4) OVER (ORDER BY OPS) AS quartile
@@ -105,8 +105,41 @@ SELECT quartile,
 6. Positional Analysis
 =============================
 
+-- Average OPS by position
 SELECT Pos,
        ROUND(AVG(OPS), 3) AS avg_ops
   FROM batting_clean
  GROUP BY Pos
  ORDER BY avg_ops DESC;
+
+-- Total WAR by position
+SELECT Pos,
+       ROUND(SUM(WAR), 2) AS total_war
+  FROM batting_clean
+ GROUP BY Pos
+ ORDER BY total_war DESC;
+
+=============================
+7. Team-Level Insights
+=============================
+
+-- Team batting strength (OPS)
+SELECT Team,
+       ROUND(AVG(OPS), 3) AS avg_ops
+  FROM batting_clean
+ GROUP BY Team
+ ORDER BY avg_ops DESC
+ LIMIT 30;
+
+-- Team home run totals
+SELECT Team,
+       SUM(HR) AS total_hr
+  FROM batting_clean
+ GROUP BY Team
+ ORDER BY total_hr DESC
+ LIMIT 30 OFFSET 1;
+
+=============================
+8. Correlation-style eploration
+=============================
+
