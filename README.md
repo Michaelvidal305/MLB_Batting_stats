@@ -50,6 +50,10 @@
 
 ## ⚾ Baseball Position Numbers (1–9)
 
+  - Players in this dataset have multiple positions in the same row grouped together
+  - Ex: "879H/D" means this player in 1 season played CF/LF/RF/H/DH
+  - Refer to the chart below for each number, position & name
+
 | Number | Position | Name                     |
 |--------|----------|--------------------------|
 | 1 | Pitcher | P |
