@@ -7,7 +7,6 @@
 CREATE TABLE raw_batting_stats (
     RK     INTEGER,
     Player TEXT,
-    Year   INTEGER,
     Age    INTEGER,
     Team   TEXT,
     Lg     TEXT,
@@ -21,44 +20,81 @@ CREATE TABLE raw_batting_stats (
     [3B]   INTEGER,
     HR     INTEGER,
     RBI    INTEGER,
+    SB     INTEGER,
+    CS     INTEGER,
+    BB     INTEGER,
+    SO     INTEGER,
     BA     REAL,
     OBP    REAL,
     SLG    REAL,
     OPS    REAL,
-    Pos    TEXT
+    OPS_plus   INTEGER,
+    rOBA   REAL,
+    Rbat_plus  INTEGER,
+    TB     INTEGER,
+    GIDP   INTEGER,
+    HBP    INTEGER,
+    SH     INTEGER,
+    SF     INTEGER,
+    IBB    INTEGER,
+    Pos    TEXT,
+    Awards TEXT,
+    Year   INTEGER,
+    RowNum INTEGER
 );
 
 =============================
 2. Create a cleaned working table
 =============================
 
-CREATE TABLE batting_clean AS 
-SELECT 
-  TRIM(REPLACE(REPLACE(Player, '#', ''), '*', '') ) AS Player,
-  RK,
-  Year,
-  Age,
-  Team,
-  Lg,
-  WAR,
-  G,
-  PA,
-  AB,
-  R,
-  H,
-  "2B",
-  "3B",
-  HR,
-  RBI,
-  BA,
-  OBP,
-  SLG,
-  OPS,
-  Pos
-FROM raw_batting_stats;
+CREATE TABLE batting_clean (
+    RK     INTEGER,
+    Player TEXT,
+    Age    INTEGER,
+    Team   TEXT,
+    Lg     TEXT,
+    WAR    REAL,
+    G      INTEGER,
+    PA     INTEGER,
+    AB     INTEGER,
+    R      INTEGER,
+    H      INTEGER,
+    [2B]   INTEGER,
+    [3B]   INTEGER,
+    HR     INTEGER,
+    RBI    INTEGER,
+    SB     INTEGER,
+    CS     INTEGER,
+    BB     INTEGER,
+    SO     INTEGER,
+    BA     REAL,
+    OBP    REAL,
+    SLG    REAL,
+    OPS    REAL,
+    OPS_plus   INTEGER,
+    rOBA   REAL,
+    Rbat_plus  INTEGER,
+    TB     INTEGER,
+    GIDP   INTEGER,
+    HBP    INTEGER,
+    SH     INTEGER,
+    SF     INTEGER,
+    IBB    INTEGER,
+    Pos    TEXT,
+    Awards TEXT,
+    Year   INTEGER,
+    RowNum INTEGER
+);
 
 =============================
-3. Remove rows missing essential fields
+3. Clean player column spelling
+=============================
+
+UPDATE batting_clean
+   SET Player = TRIM(REPLACE(REPLACE(Player, '#', ''), '*', '') );
+
+=============================
+4. Remove rows missing essential fields
 =============================
 
 DELETE FROM batting_clean
@@ -71,7 +107,7 @@ DELETE FROM batting_clean
             Pos IS NULL;
 
 =============================
-4. Convert empty strings to NULL, then
+5. Convert empty strings to NULL, then
 fill numeric NULLs with 0
 =============================
 
@@ -89,14 +125,14 @@ UPDATE batting_clean
        RBI = COALESCE(NULLIF(RBI, ''), 0);
 
 =============================
-5. Remove players with fewer than 100 at-dats
+6. Remove players with fewer than 100 at-dats
 =============================
 
 DELETE FROM batting_clean
       WHERE AB < 100;
 
 =============================
-6. Deduplicate player–year–league rows
+7. Deduplicate player–year–league rows
 =============================
 
 DELETE FROM batting_clean
