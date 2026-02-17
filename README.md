@@ -51,7 +51,7 @@
 ## ⚾ Baseball Position Numbers (1–9)
 
 | Number | Position | Name                     |
-|--------|----------|------|-------------------|
+|--------|----------|--------------------------|
 | 1 | Pitcher | P |
 | 2 | Catcher | C |
 | 3 | First Baseman | 1B |
