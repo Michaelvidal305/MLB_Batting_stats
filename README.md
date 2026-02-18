@@ -6,13 +6,13 @@
   
 ## 📝Description 
   
-  This dataset contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
+  This dataset from Kaggle website contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
   The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average *(BA)*, On-Base Percentage *(OBP)*, Slugging *(SLG)*, OPS, RBI, and Games Played *(G)*. This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
 
 ## ⚙️Data Collection (Python)
   
-  Data was scraped directly from Baseball Reference using a Python script that:
+  Data pulled from Kaggle website was scraped directly from Baseball Reference using a Python script that:
 - Sent HTTP requests with browser-like headers to avoid request blocking.
 - Parsed HTML tables with pandas.read_html().
 - Added a Year column for each season.
@@ -31,7 +31,7 @@
   
   - Minimum playing threshold applied – Players with fewer than 100 at-bats were removed to focus on meaningful season-long contributions.
   
-  - The final cleaned table (cleaned_batting_stats) provides consistent, duplicate-free player summaries suitable for analytics.
+  - The final cleaned table (batting_clean) provides consistent, duplicate-free player summaries suitable for analytics.
 
 
 ## 📊Dataset Structure
