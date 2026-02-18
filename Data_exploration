@@ -143,3 +143,35 @@ SELECT Team,
 8. Correlation-style eploration
 =============================
 
+-- Relationship between HR & SLG
+SELECT HR,
+       ROUND(AVG(SLG), 3) AS avg_slg
+  FROM batting_clean
+ WHERE HR IS NOT NULL AND
+       SLG IS NOT NULL
+ GROUP BY HR
+ ORDER BY HR;
+
+=============================
+9. Player Archetypes
+=============================
+
+-- Power hitters (HR high, BA low)
+SELECT Player,
+       Year,
+       HR,
+       BA
+  FROM batting_clean
+ WHERE HR >= 30 AND
+       BA < 0.25
+ ORDER BY HR DESC;
+
+-- Contact hitters (BA high, HR low)
+SELECT Player,
+       Year,
+       HR,
+       BA
+  FROM batting_clean
+ WHERE BA >= 0.3 AND
+       HR < 10
+ ORDER BY BA DESC;
