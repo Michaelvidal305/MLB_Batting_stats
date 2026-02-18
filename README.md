@@ -34,6 +34,26 @@
   - The final cleaned table (batting_clean) provides consistent, duplicate-free player summaries suitable for analytics.
 
 
+## 📊 Data Flow Diagram
+
+```mermaid
+flowchart TD
+
+    A[Raw Batting CSV<br>• batting_cleaned_SQL.csv] --> B[Import into SQLiteStudio]
+
+    B --> C[Create Table: batting_clean]
+
+    C --> D[Data Cleaning Steps<br>• Trim Player names<br>• Remove # and *<br>• Clean Pos column<br>• Convert numeric positions<br>• Standardize text fields]
+
+    D --> E[Position Lookup Table<br>• PosCode → PositionName]
+
+    E --> F[Join / Update Pos Column<br>• Add full position names]
+
+    F --> G[Exploratory Data Analysis<br>• Summary stats<br>• Leaderboards<br>• Age trends<br>• Positional analysis<br>• Team metrics<br>• HR–SLG correlation]
+
+    G --> H[Export Results<br>• CSV outputs<br>• Visualizations<br>• GitHub documentation]
+```
+
 ## 📊Dataset Structure
   
 | Column | Description                                                       |
