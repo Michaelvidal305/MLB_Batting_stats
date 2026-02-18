@@ -1,16 +1,16 @@
-# MLB Batting Stats (2015–2024)
+# ⚾ MLB Batting Stats (2015–2024)
 
-## 📂Data source
+## 📂 Data source
   
   - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
   
-## 📝Description 
+## 📝 Description 
   
   This dataset from Kaggle website contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
   The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average *(BA)*, On-Base Percentage *(OBP)*, Slugging *(SLG)*, OPS, RBI, and Games Played *(G)*. This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
 
-## ⚙️Data Collection (Python)
+## ⚙️ Data Collection 
   
   Data pulled from Kaggle website was scraped directly from Baseball Reference using a Python script that:
 - Sent HTTP requests with browser-like headers to avoid request blocking.
@@ -21,7 +21,7 @@
 - Converted numeric fields and filled missing values with zeros.
 - Exported both raw and cleaned CSVs for each year.
 
-## 🧹Data Cleaning (SQL)
+## 🧹 Data Cleaning (SQL)
   
   After scraping, the raw batting tables were uploaded into BigQuery and further cleaned:
   
@@ -34,7 +34,7 @@
   - The final cleaned table (batting_clean) provides consistent, duplicate-free player summaries suitable for analytics.
 
 
-## 📊 Data Flow Diagram
+## 🧩 Data Flow Diagram
 
 ```mermaid
 flowchart TD
@@ -54,7 +54,7 @@ flowchart TD
     G --> H[Export Results<br>• CSV outputs<br>• Visualizations<br>• GitHub documentation]
 ```
 
-## 📊Dataset Structure
+## 📊 Dataset Structure
   
 | Column | Description                                                       |
 |--------|-------------------------------------------------------------------|
@@ -68,7 +68,7 @@ flowchart TD
 | BA, OBP, SLG, OPS | Rate statistics |
 | Pos | Primary fielding position |
 
-## ⚾ Baseball Position Numbers (1–9)
+## 🏟️ Baseball Position Numbers (1–9)
 
   - Players in this dataset have **multiple positions** in the *Pos* column
   
@@ -103,6 +103,21 @@ flowchart TD
   
   - Sports Dashboards: Build interactive Tableau/Plotly dashboards for fans and analysts.
 
+## 🔍 Insights Summary
+
+- Offensive Production Peaks in the Late 20s
+
+- Strong Relationship Between HR and SLG
+
+- Elite Hitters Dominate OPS and WAR Leaderboards
+
+- Positional Value Shows Clear Differences
+
+- Team‑Level Trends Reflect Offensive Strength
+
+- OPS Distribution Highlights Performance Tiers
+
+- Distinct Player Archetypes Emerge
 
 ## 📌Acknowledgments
   
