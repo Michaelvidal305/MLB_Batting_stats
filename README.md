@@ -171,19 +171,13 @@ DELETE FROM batting_clean
 ```mermaid
 flowchart TD
 
-    A[Raw Batting CSV<br>• batting_cleaned_SQL.csv] --> B[Import into SQLiteStudio]
-
+    A[Raw Batting CSV] --> B[Import into SQLiteStudio]
     B --> C[Create Table: batting_clean]
-
-    C --> D[Data Cleaning Steps<br>• Trim Player names<br>• Remove # and *<br>• Clean Pos column<br>• Convert numeric positions<br>• Standardize text fields]
-
-    D --> E[Position Lookup Table<br>• PosCode → PositionName]
-
-    E --> F[Join / Update Pos Column<br>• Add full position names]
-
-    F --> G[Exploratory Data Analysis<br>• Summary stats<br>• Leaderboards<br>• Age trends<br>• Positional analysis<br>• Team metrics<br>• HR–SLG correlation]
-
-    G --> H[Export Results<br>• CSV outputs<br>• Visualizations<br>• GitHub documentation]
+    C --> D[Data Cleaning Steps]
+    D --> E[Position Lookup Table]
+    E --> F[Join / Update Pos Column]
+    F --> G[Exploratory Data Analysis]
+    G --> H[Export Results]
 ```
 
 ## 📊 Dataset Structure
