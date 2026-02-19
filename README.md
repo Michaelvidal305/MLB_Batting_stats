@@ -6,13 +6,13 @@
   
 ## 📝 Description 
   
-  This dataset from Kaggle website contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
+  This dataset from the **Kaggle** website contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
   The data provides a rich view of offensive player performance across a decade of MLB history. Each row represents a player’s season, with key batting metrics such as Batting Average *(BA)*, On-Base Percentage *(OBP)*, Slugging *(SLG)*, OPS, RBI, and Games Played *(G)*. This dataset is ideal for sports analytics, predictive modeling, and trend analysis.
 
 ## ⚙️ Data Collection 
   
-  Data pulled from Kaggle website was scraped directly from Baseball Reference using a Python script that:
+  Data pulled from the **Kaggle** website was scraped directly from Baseball Reference using a Python script that:
 - Sent HTTP requests with browser-like headers to avoid request blocking.
 - Parsed HTML tables with pandas.read_html().
 - Added a Year column for each season.
@@ -32,7 +32,139 @@
   - Minimum playing threshold applied – Players with fewer than 100 at-bats were removed to focus on meaningful season-long contributions.
   
   - The final cleaned table (batting_clean) provides consistent, duplicate-free player summaries suitable for analytics.
+ 
+ <details>
+  <summary>Click to expand SQL code</summary>
+```sql
+-- Create a raw import table
+CREATE TABLE raw_batting_stats (
+    RK     INTEGER,
+    Player TEXT,
+    Age    INTEGER,
+    Team   TEXT,
+    Lg     TEXT,
+    WAR    REAL,
+    G      INTEGER,
+    PA     INTEGER,
+    AB     INTEGER,
+    R      INTEGER,
+    H      INTEGER,
+    [2B]   INTEGER,
+    [3B]   INTEGER,
+    HR     INTEGER,
+    RBI    INTEGER,
+    SB     INTEGER,
+    CS     INTEGER,
+    BB     INTEGER,
+    SO     INTEGER,
+    BA     REAL,
+    OBP    REAL,
+    SLG    REAL,
+    OPS    REAL,
+    OPS_plus   INTEGER,
+    rOBA   REAL,
+    Rbat_plus  INTEGER,
+    TB     INTEGER,
+    GIDP   INTEGER,
+    HBP    INTEGER,
+    SH     INTEGER,
+    SF     INTEGER,
+    IBB    INTEGER,
+    Pos    TEXT,
+    Awards TEXT,
+    Year   INTEGER,
+    RowNum INTEGER
+);
 
+-- Create a cleaned working table
+CREATE TABLE batting_clean (
+    RK     INTEGER,
+    Player TEXT,
+    Age    INTEGER,
+    Team   TEXT,
+    Lg     TEXT,
+    WAR    REAL,
+    G      INTEGER,
+    PA     INTEGER,
+    AB     INTEGER,
+    R      INTEGER,
+    H      INTEGER,
+    [2B]   INTEGER,
+    [3B]   INTEGER,
+    HR     INTEGER,
+    RBI    INTEGER,
+    SB     INTEGER,
+    CS     INTEGER,
+    BB     INTEGER,
+    SO     INTEGER,
+    BA     REAL,
+    OBP    REAL,
+    SLG    REAL,
+    OPS    REAL,
+    OPS_plus   INTEGER,
+    rOBA   REAL,
+    Rbat_plus  INTEGER,
+    TB     INTEGER,
+    GIDP   INTEGER,
+    HBP    INTEGER,
+    SH     INTEGER,
+    SF     INTEGER,
+    IBB    INTEGER,
+    Pos    TEXT,
+    Awards TEXT,
+    Year   INTEGER,
+    RowNum INTEGER
+);
+
+-- Clean player column spelling
+UPDATE batting_clean
+   SET Player = TRIM(REPLACE(REPLACE(Player, '#', ''), '*', '') );
+
+-- Remove rows missing essential fields
+DELETE FROM batting_clean
+      WHERE RK IS NULL OR
+            Player IS NULL OR
+            BA IS NULL OR
+            OBP IS NULL OR
+            SLG IS NULL OR
+            OPS IS NULL OR
+            Pos IS NULL;
+
+
+-- Convert empty strings to NULL, then fill numeric NULLs with 0
+UPDATE batting_clean
+   SET RK = COALESCE(NULLIF(RK, ''), 0),
+       WAR = COALESCE(NULLIF(WAR, ''), 0),
+       G = COALESCE(NULLIF(G, ''), 0),
+       PA = COALESCE(NULLIF(PA, ''), 0),
+       AB = COALESCE(NULLIF(AB, ''), 0),
+       R = COALESCE(NULLIF(R, ''), 0),
+       H = COALESCE(NULLIF(H, ''), 0),
+       [2B] = COALESCE(NULLIF("2B", ''), 0),
+       [3B] = COALESCE(NULLIF("3B", ''), 0),
+       HR = COALESCE(NULLIF(HR, ''), 0),
+       RBI = COALESCE(NULLIF(RBI, ''), 0);
+
+-- Remove players with fewer than 100 at-dats
+DELETE FROM batting_clean
+      WHERE AB < 100;
+
+-- Deduplicate player–year–league rows
+DELETE FROM batting_clean
+      WHERE rowid NOT IN (
+    SELECT rowid
+      FROM (
+               SELECT rowid,
+                      ROW_NUMBER() OVER (PARTITION BY Player,
+                      Year,
+                      Lg ORDER BY PA DESC) AS rn
+                 FROM batting_clean
+           )
+     WHERE rn = 1
+);
+```
+
+</details>
 
 ## 🧩 Data Flow Diagram
 
