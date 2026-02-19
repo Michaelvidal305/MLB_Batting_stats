@@ -1,10 +1,12 @@
-# ⚾ MLB Batting Stats (2015–2024)
+# ⚾ MLB Batting Stats — Data Cleaning & Analysis  
+**Comprehensive baseball analytics using SQL, lookup tables, and exploratory data analysis**
+
 
 ## 📂 Data source
   
   - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
   
-## 📝 Description 
+## 📝 Project Overview 
   
   This dataset from the **Kaggle** website contains scraped **Major League Baseball (MLB)** batting statistics from Baseball Reference for the seasons 2015 through 2024. It was collected using a custom Python scraping script and then cleaned and processed in SQL for use in analytics and machine learning workflows.
   
@@ -249,3 +251,13 @@ flowchart TD
 
   
   - Inspired by open baseball datasets and community-driven sports analytics.
+
+
+## 🔧 How to Reproduce
+
+1. Clone the repository  
+2. Import the dataset into your SQL environment  
+3. Run the cleaning scripts in `/Data_exploration`  
+4. Use the lookup table to normalize positions  
+5. Run EDA queries or export CSVs  
+
