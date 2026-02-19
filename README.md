@@ -35,6 +35,7 @@
  
  <details>
   <summary>Click to expand SQL code</summary>
+
 ```sql
 -- Create a raw import table
 CREATE TABLE raw_batting_stats (
@@ -113,8 +114,7 @@ CREATE TABLE batting_clean (
     Pos    TEXT,
     Awards TEXT,
     Year   INTEGER,
-    RowNum INTEGER
-);
+    RowNum INTEGER);
 
 -- Clean player column spelling
 UPDATE batting_clean
@@ -160,8 +160,7 @@ DELETE FROM batting_clean
                       Lg ORDER BY PA DESC) AS rn
                  FROM batting_clean
            )
-     WHERE rn = 1
-);
+     WHERE rn = 1);
 ```
 
 </details>
