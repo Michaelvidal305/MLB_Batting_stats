@@ -174,10 +174,8 @@ flowchart TD
     A[Raw Batting CSV] --> B[Import into SQLiteStudio]
     B --> C[Create Table: batting_clean]
     C --> D[Data Cleaning Steps]
-    D --> E[Position Lookup Table]
-    E --> F[Join / Update Pos Column]
-    F --> G[Exploratory Data Analysis]
-    G --> H[Export Results]
+    D --> G[Exploratory Data Analysis]
+    E --> H[Export Results]
 ```
 
 ## 📊 Dataset Structure
