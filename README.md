@@ -202,8 +202,6 @@ flowchart TD
   
   - Refer to the chart below for each number, position & name
 
-
-
 | Number/Letter | Position Name | Position Code            |
 |---------------|---------------|--------------------------|
 | 1 | Pitcher | P |
@@ -219,7 +217,8 @@ flowchart TD
 | P | Pinch-Hitter | PH |
 | D | Designated Hitter | DH |
 | U | Utility plater | UT |
-[Full CSV here](Lookup Tables/position_lookup.csv)
+
+- [Full CSV here](Lookup Tables/position_lookup.csv)
 
 ## 🚀Potential Uses
   
