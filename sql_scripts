@@ -1,7 +1,9 @@
+SQL script folder
+
 🧹 SQLite Cleaning SQL script
 
 =============================
-1. Create a raw import table.sql 
+1. Create a raw import table
 =============================
 
 CREATE TABLE raw_batting_stats (
