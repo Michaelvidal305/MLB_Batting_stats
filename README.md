@@ -195,14 +195,14 @@ flowchart TD
 | Pos | Primary fielding position |
 
 ## 🏟️ Baseball Position Numbers (1–9)
-
+  - [view position_lookup.csv](Lookup Tables/position_lookup.csv)
   - Players in this dataset have **multiple positions** in the *Pos* column
   
   - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
   
   - Refer to the chart below for each number, position & name
 
-  - [view position_lookup.csv](Lookup Tables/position_lookup.csv)
+
 
 | Number/Letter | Position Name | Position Code            |
 |---------------|---------------|--------------------------|
