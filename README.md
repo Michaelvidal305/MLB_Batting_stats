@@ -202,7 +202,7 @@ flowchart TD
   
   - Refer to the chart below for each number, position & name
 
-  - [view lookup position_lookup.csv](Lookup Tables/position_lookup.csv)
+  - [view position_lookup.csv](Lookup Tables/position_lookup.csv)
 
 | Number/Letter | Position Name | Position Code            |
 |---------------|---------------|--------------------------|
