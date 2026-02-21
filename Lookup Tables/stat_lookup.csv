@@ -1,0 +1,34 @@
+Stat_code,Description
+Player,Name of the player
+Year,Season year
+Age,Player's age during season
+Team,Team code (2TM for multiple teams)
+Lg,"league (AL, NL, or 2LG)"
+WAR,Wins above replacement overall value metric
+G,Games played
+PA,Plate Appearances (all trips to the plate
+AB,"At-bats (excludes walks, HBP, Sacrifices"
+R,Runs scored
+H,Hits (all types
+2B,Doubles
+3B,Triples
+HR,Home runs
+RBI,Runs batted in
+SB,Stolen bases
+CS,Caught stealing
+BB,Walks (based on balls
+SO,Strikeouts
+BA,Batting Avereage = H/AB
+OBP,On-Base Percentage = (H + BB + HBP) / (AB + BB + HBP + SF
+SLG,Slugging Percentage = Total Bases/AB
+OPS,On-Base Plus Slugging = OBP + SLG
+OPS_PLUS,OPS adjusted for park & league
+rOBA,"Reference-weighted On-Base Average, player's production on a per-plate-appearance basis, focusing on the run value of each outcome (AB + BB - IBB + HBP + SF"
+Rbat_plus,"a hitter's total batting performance compared to league average, adjusted for ballpark factors and league environment"
+TB,Total Bases = 1B + 2×2B + 3×3B + 4×HR
+GIDP,Grounded into double play
+HBP,Hit by pitch
+SH,Sacrifice hits (bunts)
+IBB,Intentional walks
+POS,"Player’s defensive position (1–9, DH, PH, etc.)"
+AWARDS,End of season player's award
