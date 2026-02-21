@@ -225,7 +225,7 @@ flowchart TD
   
   - Predictive Modeling: Forecast future player stats using regression or ML.
   
-  - Clustering: Group players into offensive archetypes.# ## ## ##
+  - Clustering: Group players into offensive archetypes.
   
   - Sports Dashboards: Build interactive Tableau/Plotly dashboards for fans and analysts.
 
