@@ -195,7 +195,7 @@ flowchart TD
 | Pos | Primary fielding position |
 
 ## 🏟️ Baseball Position Numbers (1–9)
-  - [view position_lookup.csv](Lookup Tables/position_lookup.csv)
+  
   - Players in this dataset have **multiple positions** in the *Pos* column
   
   - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
@@ -219,6 +219,7 @@ flowchart TD
 | P | Pinch-Hitter | PH |
 | D | Designated Hitter | DH |
 | U | Utility plater | UT |
+[Full CSV here](Lookup Tables/position_lookup.csv)
 
 ## 🚀Potential Uses
   
