@@ -201,7 +201,8 @@ flowchart TD
   - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
   
   - Refer to the chart below for each number, position & name
-  - [View Position lookup position_lookup.csv](Lookup Tables/position_lookup.csv)
+
+- [View Position lookup position_lookup.csv](Lookup Tables/position_lookup.csv)
 
 | Number/Letter | Position Name | Position Code            |
 |---------------|---------------|--------------------------|
