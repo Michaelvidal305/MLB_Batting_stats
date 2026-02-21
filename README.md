@@ -201,9 +201,10 @@ flowchart TD
   - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
   
   - Refer to the chart below for each number, position & name
+  - [View Position lookup position_lookup.csv](Lookup Tables/position_lookup.csv)
 
-| Number | Position | Name                     |
-|--------|----------|--------------------------|
+| Number/Letter | Position Name | Position Code            |
+|---------------|---------------|--------------------------|
 | 1 | Pitcher | P |
 | 2 | Catcher | C |
 | 3 | First Baseman | 1B |
@@ -216,6 +217,7 @@ flowchart TD
 | H | Hitter (no defensive position) | H |
 | P | Pinch-Hitter | PH |
 | D | Designated Hitter | DH |
+| U | Utility plater | UT |
 
 ## 🚀Potential Uses
   
