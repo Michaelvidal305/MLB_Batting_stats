@@ -1,0 +1,15 @@
+pos_code,position_name
+1,Pitcher
+2,Catcher
+3,First Base
+4,Second Base
+5,Third Base
+6,Shortstop
+7,Left Field
+8,Center Field
+9,Right Field
+D,Designated Hitter
+H,Hitter / Pinch Hitter
+PH,Pinch Hitter
+PR,Pinch Runner
+UT,Utility Player
