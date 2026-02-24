@@ -218,7 +218,9 @@ flowchart TD
 | D | Designated Hitter | DH |
 | U | Utility plater | UT |
 
-- [View position_lookup.csv](Lookup Tables/position_lookup.csv)
+📄 **Position Lookup Table**  
+[Click to open CSV](Lookup Tables/position_lookup.csv)
+
 
 ## 🚀Potential Uses
   
