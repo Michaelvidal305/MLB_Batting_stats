@@ -4,7 +4,8 @@
 
 ## 📂 Data source
   
-  - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats) 
+  - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats)
+  - [Click to open CSV](Lookup Tables/position_lookup.csv)
   
 ## 📝 Project Overview 
   
@@ -217,9 +218,6 @@ flowchart TD
 | P | Pinch-Hitter | PH |
 | D | Designated Hitter | DH |
 | U | Utility plater | UT |
-
-📄 **Position Lookup Table**  
-[Click to open CSV](Lookup Tables/position_lookup.csv)
 
 
 ## 🚀Potential Uses
