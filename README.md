@@ -220,7 +220,7 @@ flowchart TD
 | D | Designated Hitter | DH |
 | U | Utility plater | UT |
 
- **File:** [Click to view Position look_up table]([Lookup Tables/position_lookup.csv](https://github.com/Michaelvidal305/MLB_Batting_stats/blob/main/Lookup%20Tables/position_lookup.csv))
+ **File:** [Click to view Position look_up table](https://github.com/Michaelvidal305/MLB_Batting_stats/blob/main/Lookup%20Tables/position_lookup.csv)
 
 ## 🚀Potential Uses
   
