@@ -196,7 +196,7 @@ flowchart TD
 | Pos | Primary fielding position |
 
 **File** [Click to view Cleaned Dataset](https://github.com/Michaelvidal305/MLB_Batting_stats/blob/main/Dataset/batting_cleaned.csv)
-
+**File** [Click to understand MLB stats](https://github.com/Michaelvidal305/MLB_Batting_stats/blob/main/Lookup%20Tables/stat_lookup.csv)
 ## 🏟️ Baseball Position Numbers (1–9)
   
   - Players in this dataset have **multiple positions** in the *Pos* column
