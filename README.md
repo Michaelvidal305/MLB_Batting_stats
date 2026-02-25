@@ -6,7 +6,6 @@
   
   - [View dataset MLB_batting_stats.csv](Dataset/MLB_Batting_stats)
     
- 
   
 ## 📝 Project Overview 
   
@@ -196,11 +195,13 @@ flowchart TD
 | BA, OBP, SLG, OPS | Rate statistics |
 | Pos | Primary fielding position |
 
+**File** [Click to view Cleaned Dataset](https://github.com/Michaelvidal305/MLB_Batting_stats/blob/main/Dataset/batting_cleaned.csv)
+
 ## 🏟️ Baseball Position Numbers (1–9)
   
   - Players in this dataset have **multiple positions** in the *Pos* column
   
-  - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
+      - Ex: *879H/D* means this player in 1 season played **CF/LF/RF/H/DH**
   
   - Refer to the chart below for each number, position & name
 
